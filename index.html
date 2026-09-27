@@ -1,0 +1,498 @@
+<title>誒誒零件清單</title>
+<meta name="catalog-fingerprint" content="17be226c43e8">
+<style>
+:root {
+  color-scheme: light;
+  --bg: #F4F6F3;
+  --surface: #FFFFFF;
+  --ink: #1D2420;
+  --muted: #5D6861;
+  --line: #DDE3DE;
+  --accent: #2E6B58;
+  --chip: #E5EFEA;
+  --warn: #A8532C;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #141917;
+    --surface: #1C2320;
+    --ink: #E4EAE6;
+    --muted: #9AA7A0;
+    --line: #2C3631;
+    --accent: #74BCA5;
+    --chip: #243630;
+    --warn: #E0916B;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #141917;
+  --surface: #1C2320;
+  --ink: #E4EAE6;
+  --muted: #9AA7A0;
+  --line: #2C3631;
+  --accent: #74BCA5;
+  --chip: #243630;
+  --warn: #E0916B;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.65;
+}
+.wrap { max-width: 820px; margin: 0 auto; padding: 32px max(16px, 4vw) 48px; }
+h1, h2, h3 { font-family: "Noto Serif TC", "Noto Sans TC", serif; line-height: 1.25; margin: 0; }
+h1 { font-size: clamp(2rem, 7vw, 3.5rem); }
+h2 { font-size: 1.45rem; margin-top: 36px; }
+h3 { font-size: 1.05rem; margin-top: 24px; color: var(--accent); }
+p { margin: 10px 0 0; color: var(--muted); }
+.stats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.stat, .chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 3px 9px;
+  background: var(--chip);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  font-size: .9rem;
+  font-variant-numeric: tabular-nums;
+}
+.search { margin-top: 24px; }
+#q {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  padding: 10px 12px;
+  font: inherit;
+}
+#q:focus, details:focus-within, .agent:focus-within { outline: 3px solid color-mix(in srgb, var(--accent) 35%, transparent); outline-offset: 2px; }
+.tool {
+  display: grid;
+  grid-template-columns: minmax(150px, 220px) 1fr;
+  gap: 8px 14px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+.tool-title { font-weight: 700; word-break: keep-all; }
+.tool-does { color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.warn { color: var(--warn); border-color: color-mix(in srgb, var(--warn) 45%, var(--line)); }
+details { grid-column: 1 / -1; color: var(--muted); }
+summary { cursor: pointer; color: var(--accent); }
+code { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9em; }
+.agents { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 14px; }
+.agent { border: 1px solid var(--line); background: var(--surface); padding: 14px; }
+.agent-tools { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.missing { padding: 10px 0; border-top: 1px solid var(--line); }
+.missing strong { display: block; }
+@media (max-width: 560px) {
+  .wrap { padding-top: 24px; }
+  .tool { grid-template-columns: 1fr; }
+}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&family=JetBrains+Mono&display=swap">
+<main class="wrap">
+<h1>誒誒零件清單</h1>
+<p>誒誒是主 agent，全部零件都能用；子功能各自用下面標的那些</p>
+<div class="stats"><span class="stat">共用零件 38 個</span><span class="stat">子功能 2 個</span><span class="stat">最後更新 2026-09-28 03:25</span></div>
+<div class="search"><input id="q" type="search" placeholder="搜尋零件"></div>
+<h2>🧰 共用零件</h2>
+<h3>👁️ 看圖識別</h3>
+<article class="tool" data-search="ocr 🔤 圖片辨字 辨識圖片與影片畫面中的文字。 👁️ 看圖識別 誒誒 🔗 連結收藏 🗄 檔案庫">
+<div class="tool-title">🔤 圖片辨字</div>
+<div><div class="tool-does">辨識圖片與影片畫面中的文字。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🔗 連結收藏</span>
+<span class="chip">🗄 檔案庫</span>
+</div></div>
+<details><summary>技術名稱</summary><code>ocr</code><br><code>tools.media:run_ocr</code></details>
+</article>
+<article class="tool" data-search="video_frames 🎥 擷取影片畫面 從短影片擷取有代表性的畫面。 👁️ 看圖識別 誒誒 🔗 連結收藏 🗄 檔案庫">
+<div class="tool-title">🎥 擷取影片畫面</div>
+<div><div class="tool-does">從短影片擷取有代表性的畫面。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🔗 連結收藏</span>
+<span class="chip">🗄 檔案庫</span>
+</div></div>
+<details><summary>技術名稱</summary><code>video_frames</code><br><code>tools.media:run_frames</code></details>
+</article>
+<article class="tool" data-search="vision 👁️ 看懂畫面 請 Gemini 說明圖片或影片畫面的內容。 👁️ 看圖識別 誒誒 🔗 連結收藏 🗄 檔案庫">
+<div class="tool-title">👁️ 看懂畫面</div>
+<div><div class="tool-does">請 Gemini 說明圖片或影片畫面的內容。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🔗 連結收藏</span>
+<span class="chip">🗄 檔案庫</span>
+</div></div>
+<details><summary>技術名稱</summary><code>vision</code><br><code>tools.media:run_vision</code></details>
+</article>
+<article class="tool" data-search="understand_file 👁️ 看懂一個檔案並寫說明 分析照片、影片、語音或檔案內容，整理摘要卡。 👁️ 看圖識別 誒誒 🗄 檔案庫">
+<div class="tool-title">👁️ 看懂一個檔案並寫說明</div>
+<div><div class="tool-does">分析照片、影片、語音或檔案內容，整理摘要卡。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🗄 檔案庫</span>
+</div></div>
+<details><summary>技術名稱</summary><code>understand_file</code><br><code>tools.understand:analyze</code></details>
+</article>
+<h3>🌏 翻譯語言</h3>
+<article class="tool" data-search="language 🌏 語言整理 辨識語言，把簡體轉繁體並翻譯外文。 🌏 翻譯語言 誒誒 🔗 連結收藏">
+<div class="tool-title">🌏 語言整理</div>
+<div><div class="tool-does">辨識語言，把簡體轉繁體並翻譯外文。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🔗 連結收藏</span>
+</div></div>
+<details><summary>技術名稱</summary><code>language</code><br><code>tools.media:run_lang</code></details>
+</article>
+<h3>🔎 搜尋</h3>
+<article class="tool" data-search="local_search 🔎 搜尋收藏 用關鍵字、實體與語意向量搜尋本機收藏。 🔎 搜尋 誒誒 🔗 連結收藏">
+<div class="tool-title">🔎 搜尋收藏</div>
+<div><div class="tool-does">用關鍵字、實體與語意向量搜尋本機收藏。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🔗 連結收藏</span>
+</div></div>
+<details><summary>技術名稱</summary><code>local_search</code><br><code>tools.search:search</code></details>
+</article>
+<article class="tool" data-search="index_item 📚 建立搜尋索引 把一筆收藏寫進本機搜尋索引。 🔎 搜尋 誒誒 🔗 連結收藏 🗄 檔案庫">
+<div class="tool-title">📚 建立搜尋索引</div>
+<div><div class="tool-does">把一筆收藏寫進本機搜尋索引。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🔗 連結收藏</span>
+<span class="chip">🗄 檔案庫</span>
+</div></div>
+<details><summary>技術名稱</summary><code>index_item</code><br><code>tools.search:index_item</code></details>
+</article>
+<article class="tool" data-search="archive_search 🔍 搜檔案庫 用白話搜整個檔案庫，照呼叫者擋看不到的。 🔎 搜尋 誒誒 🗄 檔案庫">
+<div class="tool-title">🔍 搜檔案庫</div>
+<div><div class="tool-does">用白話搜整個檔案庫，照呼叫者擋看不到的。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🗄 檔案庫</span>
+</div></div>
+<details><summary>技術名稱</summary><code>archive_search</code><br><code>tools.search:search</code></details>
+</article>
+<h3>🌐 讀網頁下載</h3>
+<article class="tool" data-search="normalize_url 🔗 整理網址 展開短網址並整理成可以儲存的標準網址。 🌐 讀網頁下載 誒誒 🔗 連結收藏">
+<div class="tool-title">🔗 整理網址</div>
+<div><div class="tool-does">展開短網址並整理成可以儲存的標準網址。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🔗 連結收藏</span>
+</div></div>
+<details><summary>技術名稱</summary><code>normalize_url</code><br><code>tools.urls:normalize</code></details>
+</article>
+<article class="tool" data-search="read_page 🌐 讀取網頁 下載公開網頁內容供後續解析。 🌐 讀網頁下載 誒誒 🔗 連結收藏">
+<div class="tool-title">🌐 讀取網頁</div>
+<div><div class="tool-does">下載公開網頁內容供後續解析。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🔗 連結收藏</span>
+</div></div>
+<details><summary>技術名稱</summary><code>read_page</code><br><code>tools.urls:get_page</code></details>
+</article>
+<article class="tool" data-search="extract_quick ⚡ 快速擷取 快速擷取連結的標題、內文、圖片與平台資訊。 🌐 讀網頁下載 誒誒 🔗 連結收藏">
+<div class="tool-title">⚡ 快速擷取</div>
+<div><div class="tool-does">快速擷取連結的標題、內文、圖片與平台資訊。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🔗 連結收藏</span>
+</div></div>
+<details><summary>技術名稱</summary><code>extract_quick</code><br><code>tools.extract:extract_quick</code></details>
+</article>
+<article class="tool" data-search="extract_heavy 🧰 深度擷取 下載媒體並補齊快速擷取拿不到的內容。 🌐 讀網頁下載 誒誒 🔗 連結收藏">
+<div class="tool-title">🧰 深度擷取</div>
+<div><div class="tool-does">下載媒體並補齊快速擷取拿不到的內容。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🔗 連結收藏</span>
+</div></div>
+<details><summary>技術名稱</summary><code>extract_heavy</code><br><code>tools.extract:extract_heavy</code></details>
+</article>
+<article class="tool" data-search="logged_browser_read 🔐 登入瀏覽器讀取 借用已登入的專用瀏覽器讀取受限頁面。 🌐 讀網頁下載 誒誒 🔗 連結收藏">
+<div class="tool-title">🔐 登入瀏覽器讀取</div>
+<div><div class="tool-does">借用已登入的專用瀏覽器讀取受限頁面。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🔗 連結收藏</span>
+</div></div>
+<details><summary>技術名稱</summary><code>logged_browser_read</code><br><code>tools.extract:_logged_browser</code></details>
+</article>
+<article class="tool" data-search="download_video 🎬 下載影片 將收藏裡的影片下載到指定位置。 🌐 讀網頁下載 誒誒 🔗 連結收藏">
+<div class="tool-title">🎬 下載影片</div>
+<div><div class="tool-does">將收藏裡的影片下載到指定位置。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🔗 連結收藏</span>
+</div></div>
+<details><summary>技術名稱</summary><code>download_video</code><br><code>tools.media:_download_video</code></details>
+</article>
+<article class="tool" data-search="download_audio 🎧 下載音訊 從連結下載可供轉文字的音訊。 🌐 讀網頁下載 誒誒 🔗 連結收藏">
+<div class="tool-title">🎧 下載音訊</div>
+<div><div class="tool-does">從連結下載可供轉文字的音訊。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🔗 連結收藏</span>
+</div></div>
+<details><summary>技術名稱</summary><code>download_audio</code><br><code>tools.extract:_download_audio</code></details>
+</article>
+<article class="tool" data-search="download_subtitle 💬 下載字幕 下載最適合的字幕並整理成純文字。 🌐 讀網頁下載 誒誒 🔗 連結收藏">
+<div class="tool-title">💬 下載字幕</div>
+<div><div class="tool-does">下載最適合的字幕並整理成純文字。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🔗 連結收藏</span>
+</div></div>
+<details><summary>技術名稱</summary><code>download_subtitle</code><br><code>tools.extract:_download_sub</code></details>
+</article>
+<h3>🎙️ 聽聲音</h3>
+<article class="tool" data-search="transcribe 🎙️ 音訊轉文字 將收藏的音訊轉成逐字稿。 🎙️ 聽聲音 誒誒 🔗 連結收藏 🗄 檔案庫">
+<div class="tool-title">🎙️ 音訊轉文字</div>
+<div><div class="tool-does">將收藏的音訊轉成逐字稿。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🔗 連結收藏</span>
+<span class="chip">🗄 檔案庫</span>
+</div></div>
+<details><summary>技術名稱</summary><code>transcribe</code><br><code>tools.media:run_asr</code></details>
+</article>
+<h3>📍 地址地圖</h3>
+<article class="tool" data-search="price_to_twd 💱 價格換算 在外幣價格後附上約略台幣金額。 📍 地址地圖 誒誒 🔗 連結收藏">
+<div class="tool-title">💱 價格換算</div>
+<div><div class="tool-does">在外幣價格後附上約略台幣金額。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🔗 連結收藏</span>
+</div></div>
+<details><summary>技術名稱</summary><code>price_to_twd</code><br><code>tools.money_place:with_twd</code></details>
+</article>
+<article class="tool" data-search="find_addresses 📍 找出地址 從文字中找出可能的台灣地址。 📍 地址地圖 誒誒 🔗 連結收藏">
+<div class="tool-title">📍 找出地址</div>
+<div><div class="tool-does">從文字中找出可能的台灣地址。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🔗 連結收藏</span>
+</div></div>
+<details><summary>技術名稱</summary><code>find_addresses</code><br><code>tools.money_place:find_addresses</code></details>
+</article>
+<article class="tool" data-search="map_link 🗺️ 地圖連結 把地址轉成 Google 地圖搜尋連結。 📍 地址地圖 誒誒 🔗 連結收藏">
+<div class="tool-title">🗺️ 地圖連結</div>
+<div><div class="tool-does">把地址轉成 Google 地圖搜尋連結。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🔗 連結收藏</span>
+</div></div>
+<details><summary>技術名稱</summary><code>map_link</code><br><code>tools.money_place:map_link</code></details>
+</article>
+<h3>✍️ 寫東西</h3>
+<article class="tool" data-search="summarize ✍️ 寫摘要 根據標題或內容替收藏寫一句摘要和短標題。 ✍️ 寫東西 誒誒 🔗 連結收藏">
+<div class="tool-title">✍️ 寫摘要</div>
+<div><div class="tool-does">根據標題或內容替收藏寫一句摘要和短標題。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🔗 連結收藏</span>
+</div></div>
+<details><summary>技術名稱</summary><code>summarize</code><br><code>tools.summarize:summarize</code></details>
+</article>
+<h3>🗄 檔案庫</h3>
+<article class="tool" data-search="archive_put 🗄 存進檔案庫 把一筆長期要記的東西存進共用檔案庫（只有本人或誒誒能寫）。 🗄 檔案庫 誒誒 🗄 檔案庫">
+<div class="tool-title">🗄 存進檔案庫</div>
+<div><div class="tool-does">把一筆長期要記的東西存進共用檔案庫（只有本人或誒誒能寫）。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🗄 檔案庫</span>
+</div></div>
+<details><summary>技術名稱</summary><code>archive_put</code><br><code>tools.archive:put</code></details>
+</article>
+<article class="tool" data-search="archive_get 🗄 拿一筆 照編號拿檔案庫的一筆；別部門的要有皇上許可。 🗄 檔案庫 誒誒 🗄 檔案庫">
+<div class="tool-title">🗄 拿一筆</div>
+<div><div class="tool-does">照編號拿檔案庫的一筆；別部門的要有皇上許可。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🗄 檔案庫</span>
+</div></div>
+<details><summary>技術名稱</summary><code>archive_get</code><br><code>tools.archive:get</code></details>
+</article>
+<article class="tool" data-search="archive_query 🗄 列出檔案庫 列出看得到的東西，可照種類、部門、分類篩；別部門的要有皇上許可。 🗄 檔案庫 誒誒 🗄 檔案庫">
+<div class="tool-title">🗄 列出檔案庫</div>
+<div><div class="tool-does">列出看得到的東西，可照種類、部門、分類篩；別部門的要有皇上許可。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🗄 檔案庫</span>
+</div></div>
+<details><summary>技術名稱</summary><code>archive_query</code><br><code>tools.archive:query</code></details>
+</article>
+<article class="tool" data-search="archive_forget 🙈 忘記 軟刪除：搜不到但原檔和資料都在。 🗄 檔案庫 誒誒 🗄 檔案庫">
+<div class="tool-title">🙈 忘記</div>
+<div><div class="tool-does">軟刪除：搜不到但原檔和資料都在。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🗄 檔案庫</span>
+</div></div>
+<details><summary>技術名稱</summary><code>archive_forget</code><br><code>tools.archive:forget</code></details>
+</article>
+<article class="tool" data-search="archive_restore ↩️ 找回 把忘記的找回來。 🗄 檔案庫 誒誒 🗄 檔案庫">
+<div class="tool-title">↩️ 找回</div>
+<div><div class="tool-does">把忘記的找回來。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🗄 檔案庫</span>
+</div></div>
+<details><summary>技術名稱</summary><code>archive_restore</code><br><code>tools.archive:restore</code></details>
+</article>
+<h3>🧠 腦袋記性</h3>
+<article class="tool" data-search="ask_claude_json 🧠 請 Claude 回 JSON 呼叫本機 Claude 並取得結構化的 JSON 答案。 🧠 腦袋記性 誒誒 🔗 連結收藏 🗄 檔案庫">
+<div class="tool-title">🧠 請 Claude 回 JSON</div>
+<div><div class="tool-does">呼叫本機 Claude 並取得結構化的 JSON 答案。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🔗 連結收藏</span>
+<span class="chip">🗄 檔案庫</span>
+</div></div>
+<details><summary>技術名稱</summary><code>ask_claude_json</code><br><code>tools.llm:ask_json</code></details>
+</article>
+<article class="tool" data-search="gemini_call ✨ 呼叫 Gemini 呼叫可用的 Gemini 模型並自動替換忙碌模型。 🧠 腦袋記性 誒誒 🔗 連結收藏">
+<div class="tool-title">✨ 呼叫 Gemini</div>
+<div><div class="tool-does">呼叫可用的 Gemini 模型並自動替換忙碌模型。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🔗 連結收藏</span>
+</div></div>
+<details><summary>技術名稱</summary><code>gemini_call</code><br><code>tools.media:_gemini_call</code></details>
+</article>
+<article class="tool" data-search="chat_remember 🧠 記住對話 記住一輪使用者與機器人的對話。 🧠 腦袋記性 誒誒 🔗 連結收藏 🗄 檔案庫">
+<div class="tool-title">🧠 記住對話</div>
+<div><div class="tool-does">記住一輪使用者與機器人的對話。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🔗 連結收藏</span>
+<span class="chip">🗄 檔案庫</span>
+</div></div>
+<details><summary>技術名稱</summary><code>chat_remember</code><br><code>tools.chat_memory:remember</code></details>
+</article>
+<article class="tool" data-search="chat_recent 🕘 近期對話 讀取某個對話的近期記憶。 🧠 腦袋記性 誒誒 🔗 連結收藏 🗄 檔案庫">
+<div class="tool-title">🕘 近期對話</div>
+<div><div class="tool-does">讀取某個對話的近期記憶。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🔗 連結收藏</span>
+<span class="chip">🗄 檔案庫</span>
+</div></div>
+<details><summary>技術名稱</summary><code>chat_recent</code><br><code>tools.chat_memory:recent</code></details>
+</article>
+<article class="tool" data-search="save_choices 📋 儲存選項 暫存給使用者挑選的候選項目。 🧠 腦袋記性 誒誒 🔗 連結收藏">
+<div class="tool-title">📋 儲存選項</div>
+<div><div class="tool-does">暫存給使用者挑選的候選項目。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🔗 連結收藏</span>
+</div></div>
+<details><summary>技術名稱</summary><code>save_choices</code><br><code>tools.chat_memory:save_choices</code></details>
+</article>
+<article class="tool" data-search="peek_choices 👀 看等待中的選項 看還沒過期、還沒被選的候選項目，不拿走（判斷使用者是不是在打字回答）。 🧠 腦袋記性 誒誒">
+<div class="tool-title">👀 看等待中的選項</div>
+<div><div class="tool-does">看還沒過期、還沒被選的候選項目，不拿走（判斷使用者是不是在打字回答）。</div><div class="chips">
+<span class="chip">誒誒</span>
+</div></div>
+<details><summary>技術名稱</summary><code>peek_choices</code><br><code>tools.chat_memory:peek_choices</code></details>
+</article>
+<article class="tool" data-search="take_choice ✅ 取用選項 依 token 與編號取回使用者選中的候選項。 🧠 腦袋記性 誒誒 🔗 連結收藏">
+<div class="tool-title">✅ 取用選項</div>
+<div><div class="tool-does">依 token 與編號取回使用者選中的候選項。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🔗 連結收藏</span>
+</div></div>
+<details><summary>技術名稱</summary><code>take_choice</code><br><code>tools.chat_memory:take_choice</code></details>
+</article>
+<h3>📨 講話</h3>
+<article class="tool" data-search="telegram_send 📨 傳送 Telegram 呼叫 Telegram Bot API 傳送訊息或執行其他方法。 📨 講話 誒誒">
+<div class="tool-title">📨 傳送 Telegram</div>
+<div><div class="tool-does">呼叫 Telegram Bot API 傳送訊息或執行其他方法。</div><div class="chips">
+<span class="chip">誒誒</span>
+</div></div>
+<details><summary>技術名稱</summary><code>telegram_send</code><br><code>tools.telegram:tg</code></details>
+</article>
+<article class="tool" data-search="telegram_photo 🖼️ 傳送 Telegram 照片 傳送照片與說明到 Telegram 對話。 📨 講話 誒誒">
+<div class="tool-title">🖼️ 傳送 Telegram 照片</div>
+<div><div class="tool-does">傳送照片與說明到 Telegram 對話。</div><div class="chips">
+<span class="chip">誒誒</span>
+</div></div>
+<details><summary>技術名稱</summary><code>telegram_photo</code><br><code>tools.telegram:tg_photo</code></details>
+</article>
+<article class="tool" data-search="tg_download_file 📥 抓 Telegram 檔案 把皇上傳的 20MB 以下檔案抓到本機。 📨 講話 誒誒 🗄 檔案庫">
+<div class="tool-title">📥 抓 Telegram 檔案</div>
+<div><div class="tool-does">把皇上傳的 20MB 以下檔案抓到本機。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🗄 檔案庫</span>
+</div></div>
+<details><summary>技術名稱</summary><code>tg_download_file</code><br><code>tools.telegram:download_file</code></details>
+</article>
+<article class="tool" data-search="tg_big_download 📦 抓大檔 從私人頻道抓 20MB 以上的大檔（上限 2GB）。 📨 講話 誒誒 🗄 檔案庫">
+<div class="tool-title">📦 抓大檔</div>
+<div><div class="tool-does">從私人頻道抓 20MB 以上的大檔（上限 2GB）。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🗄 檔案庫</span>
+</div></div>
+<details><summary>技術名稱</summary><code>tg_big_download</code><br><code>tools.tg_big:download</code></details>
+</article>
+<article class="tool" data-search="tg_big_upload 📦 傳大檔 把本機大檔傳進私人頻道。 📨 講話 誒誒 🗄 檔案庫">
+<div class="tool-title">📦 傳大檔</div>
+<div><div class="tool-does">把本機大檔傳進私人頻道。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip">🗄 檔案庫</span>
+</div></div>
+<details><summary>技術名稱</summary><code>tg_big_upload</code><br><code>tools.tg_big:upload</code></details>
+</article>
+<h2>🧩 子功能</h2>
+<section class="agents">
+<article class="agent">
+<h3>🔗 連結收藏</h3>
+<p>收藏皇上傳的連結（自動抓內容、摘要、分類）；在收藏裡找東西、列清單、比價、改分類、補描述、改摘要、看統計；講某則收藏看到了什麼、內容是什麼</p>
+<div class="agent-tools">
+<span class="chip">🔗 整理網址</span>
+<span class="chip">🌐 讀取網頁</span>
+<span class="chip">⚡ 快速擷取</span>
+<span class="chip">🧰 深度擷取</span>
+<span class="chip">🔐 登入瀏覽器讀取</span>
+<span class="chip">🎬 下載影片</span>
+<span class="chip">🎧 下載音訊</span>
+<span class="chip">💬 下載字幕</span>
+<span class="chip">🎙️ 音訊轉文字</span>
+<span class="chip">🔤 圖片辨字</span>
+<span class="chip">🎥 擷取影片畫面</span>
+<span class="chip">👁️ 看懂畫面</span>
+<span class="chip">🌏 語言整理</span>
+<span class="chip">🧠 請 Claude 回 JSON</span>
+<span class="chip">✨ 呼叫 Gemini</span>
+<span class="chip">🔎 搜尋收藏</span>
+<span class="chip">📚 建立搜尋索引</span>
+<span class="chip">💱 價格換算</span>
+<span class="chip">📍 找出地址</span>
+<span class="chip">🗺️ 地圖連結</span>
+<span class="chip">🧠 記住對話</span>
+<span class="chip">🕘 近期對話</span>
+<span class="chip">📋 儲存選項</span>
+<span class="chip">✅ 取用選項</span>
+<span class="chip">✍️ 寫摘要</span>
+</div></article>
+<article class="agent">
+<h3>🗄 檔案庫</h3>
+<p>收皇上直接傳的照片、影片、語音、檔案（看懂內容寫摘要）；講剛存的照片／影片／檔案看到了什麼、內容是什麼；「記起來」存想法或日誌；用白話找整個檔案庫（連結、照片、想法都找）並把原檔拿出來；忘記、找回；收回或列出部門看資料的許可；找零件（誒誒有哪些工具零件）</p>
+<div class="agent-tools">
+<span class="chip">🗄 存進檔案庫</span>
+<span class="chip">🗄 拿一筆</span>
+<span class="chip">🗄 列出檔案庫</span>
+<span class="chip">🙈 忘記</span>
+<span class="chip">↩️ 找回</span>
+<span class="chip">🔍 搜檔案庫</span>
+<span class="chip">📥 抓 Telegram 檔案</span>
+<span class="chip">📦 抓大檔</span>
+<span class="chip">📦 傳大檔</span>
+<span class="chip">🔤 圖片辨字</span>
+<span class="chip">👁️ 看懂畫面</span>
+<span class="chip">🎙️ 音訊轉文字</span>
+<span class="chip">🎥 擷取影片畫面</span>
+<span class="chip">🧠 請 Claude 回 JSON</span>
+<span class="chip">📚 建立搜尋索引</span>
+<span class="chip">🧠 記住對話</span>
+<span class="chip">🕘 近期對話</span>
+<span class="chip">👁️ 看懂一個檔案並寫說明</span>
+</div></article>
+</section>
+<h2>❌ 還缺的零件</h2>
+<div class="missing"><strong>🌐 上網查</strong><span>查天氣、營業時間、新聞、價格等網路上的新資料</span></div>
+<div class="missing"><strong>🌏 翻任意一句話</strong><span>皇上隨口貼的外文直接翻（現在只能翻收藏裡的內容）</span></div>
+<div class="missing"><strong>⏰ 提醒鬧鐘行事曆</strong><span>到時間提醒皇上</span></div>
+</main>
+<script>
+(function () {
+  var q = document.getElementById("q");
+  if (!q) return;
+  q.addEventListener("input", function () {
+    var needle = q.value.trim().toLowerCase();
+    document.querySelectorAll("[data-search]").forEach(function (row) {
+      row.hidden = needle && row.getAttribute("data-search").toLowerCase().indexOf(needle) === -1;
+    });
+  });
+}());
+</script>
