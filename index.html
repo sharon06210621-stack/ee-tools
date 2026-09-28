@@ -1,5 +1,5 @@
 <title>誒誒零件清單</title>
-<meta name="catalog-fingerprint" content="95c1d319798f">
+<meta name="catalog-fingerprint" content="baf9c37c2cf4">
 <style>
 :root {
   color-scheme: light;
@@ -101,9 +101,39 @@ code { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Conso
 <main class="wrap">
 <h1>誒誒零件清單</h1>
 <p>誒誒是主 agent，全部零件都能用；子功能各自用下面標的那些</p>
-<div class="stats"><span class="stat">共用零件 38 個</span><span class="stat">子功能 2 個</span><span class="stat">最後更新 2026-09-28 03:29</span></div>
+<div class="stats"><span class="stat">共用零件 43 個</span><span class="stat">子功能 2 個</span><span class="stat">最後更新 2026-09-28 16:38</span></div>
 <div class="search"><input id="q" type="search" placeholder="搜尋零件"></div>
 <h2>🧰 共用零件</h2>
+<h3>⏰ 提醒</h3>
+<article class="tool" data-search="reminder_add ⏰ 新增提醒 新增一般提醒、起床提醒或需要提前準備的行程提醒。 ⏰ 提醒 誒誒">
+<div class="tool-title">⏰ 新增提醒</div>
+<div><div class="tool-does">新增一般提醒、起床提醒或需要提前準備的行程提醒。</div><div class="chips">
+<span class="chip">誒誒</span>
+</div></div>
+<details><summary>技術名稱</summary><code>reminder_add</code><br><code>tools.reminders:add</code></details>
+</article>
+<article class="tool" data-search="reminder_update ⏰ 修改提醒 修改提醒時間、內容或提前分鐘，並重新開始等待。 ⏰ 提醒 誒誒">
+<div class="tool-title">⏰ 修改提醒</div>
+<div><div class="tool-does">修改提醒時間、內容或提前分鐘，並重新開始等待。</div><div class="chips">
+<span class="chip">誒誒</span>
+</div></div>
+<details><summary>技術名稱</summary><code>reminder_update</code><br><code>tools.reminders:update</code></details>
+</article>
+<article class="tool" data-search="reminder_cancel ⏰ 取消提醒 取消提醒但保留資料，日後仍可找回。 ⏰ 提醒 誒誒">
+<div class="tool-title">⏰ 取消提醒</div>
+<div><div class="tool-does">取消提醒但保留資料，日後仍可找回。</div><div class="chips">
+<span class="chip">誒誒</span>
+<span class="chip warn">要皇上確認</span>
+</div></div>
+<details><summary>技術名稱</summary><code>reminder_cancel</code><br><code>tools.reminders:cancel</code></details>
+</article>
+<article class="tool" data-search="reminders_due ⏰ 檢查到點提醒 找出已到時間或該再次叫皇上的提醒。 ⏰ 提醒 誒誒">
+<div class="tool-title">⏰ 檢查到點提醒</div>
+<div><div class="tool-does">找出已到時間或該再次叫皇上的提醒。</div><div class="chips">
+<span class="chip">誒誒</span>
+</div></div>
+<details><summary>技術名稱</summary><code>reminders_due</code><br><code>tools.reminders:due</code></details>
+</article>
 <h3>👁️ 看圖識別</h3>
 <article class="tool" data-search="ocr 🔤 圖片辨字 辨識圖片與影片畫面中的文字。 👁️ 看圖識別 誒誒 🔗 連結收藏 🗄 檔案庫">
 <div class="tool-title">🔤 圖片辨字</div>
@@ -423,6 +453,13 @@ code { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Conso
 </div></div>
 <details><summary>技術名稱</summary><code>tg_big_upload</code><br><code>tools.tg_big:upload</code></details>
 </article>
+<article class="tool" data-search="imessage_send 📱 傳送 iMessage 透過 Mac 訊息 App 從 iMessage 帳號傳送文字。 📨 講話 誒誒">
+<div class="tool-title">📱 傳送 iMessage</div>
+<div><div class="tool-does">透過 Mac 訊息 App 從 iMessage 帳號傳送文字。</div><div class="chips">
+<span class="chip">誒誒</span>
+</div></div>
+<details><summary>技術名稱</summary><code>imessage_send</code><br><code>tools.imessage:send</code></details>
+</article>
 <h2>🧩 子功能</h2>
 <section class="agents">
 <article class="agent">
@@ -482,7 +519,6 @@ code { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Conso
 <h2>❌ 還缺的零件</h2>
 <div class="missing"><strong>🌐 上網查</strong><span>查天氣、營業時間、新聞、價格等網路上的新資料</span></div>
 <div class="missing"><strong>🌏 翻任意一句話</strong><span>皇上隨口貼的外文直接翻（現在只能翻收藏裡的內容）</span></div>
-<div class="missing"><strong>⏰ 提醒鬧鐘行事曆</strong><span>到時間提醒皇上</span></div>
 </main>
 <script>
 (function () {
